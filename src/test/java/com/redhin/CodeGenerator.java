@@ -13,8 +13,6 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,20 +25,21 @@ public class CodeGenerator {
   private final static String Author = "";
   private final static String Parent = "com.redhin.springseed";
   private final static String ModuleName = "test";
+  private final static String TableName = "mc_card";
 
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) {
     generator();
   }
 
-  private static void generator() throws IOException, SQLException {
+  private static void generator() {
     AutoGenerator gen = new AutoGenerator();
     // 1.设置数据源
     gen.setDataSource(getDataSource());
     // 2.设置全局配置
     gen.setGlobalConfig(getGlobalConfig());
     // 3.设置策略配置
-    gen.setStrategy(getStrategyConfig("mc_card"));
+    gen.setStrategy(getStrategyConfig(TableName));
     // 4.设置包配置
     gen.setPackageInfo(getPackageConfig());
     // 5.设置自定义属性
@@ -73,9 +72,8 @@ public class CodeGenerator {
    * 数据源配置
    *
    * @return 数据源
-   * @throws SQLException
    */
-  private static DataSourceConfig getDataSource() throws SQLException {
+  private static DataSourceConfig getDataSource() {
     DataSourceConfig dsc = new DataSourceConfig();
     dsc.setUrl(DataSourceUrl);
     dsc.setDriverName(DataSourceDriver);
