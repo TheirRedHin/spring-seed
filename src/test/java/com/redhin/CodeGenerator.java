@@ -24,7 +24,7 @@ public class CodeGenerator {
   private final static String DataSourcePwd = "root";
   private final static String Author = "";
   private final static String Parent = "com.redhin.springseed";
-  private final static String ModuleName = "test";
+  private final static String ModuleName = "";
   private final static String TableName = "mc_card";
 
 
