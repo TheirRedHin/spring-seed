@@ -22,8 +22,9 @@ public class CodeGenerator {
   private final static String DataSourceDriver = "com.mysql.cj.jdbc.Driver";
   private final static String DataSourceUser = "root";
   private final static String DataSourcePwd = "root";
-  private final static String Author = "";
-  private final static String Parent = "com.redhin.springseed";
+  private final static String Author = "redHin";
+  private final static String Parent = "com.redhin.demo";
+  private final static String childModuleName = "demo";
   private final static String ModuleName = "";
   private final static String TableName = "mc_card";
 
@@ -90,7 +91,7 @@ public class CodeGenerator {
   private static GlobalConfig getGlobalConfig() {
     GlobalConfig gc = new GlobalConfig();
     String projectPath = System.getProperty("user.dir");
-    gc.setOutputDir(projectPath + "\\src\\main\\java");
+    gc.setOutputDir(projectPath + "\\" + childModuleName + "\\src\\main\\java");
     gc.setAuthor(Author);
     gc.setOpen(false);
     return gc;
@@ -143,7 +144,8 @@ public class CodeGenerator {
       @Override
       public String outputFile(TableInfo tableInfo) {
         // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-        return System.getProperty("user.dir") + "/src/main/resources/mapper/" + getPackageConfig()
+        return System.getProperty("user.dir") + "\\" + childModuleName
+            + "\\src\\main\\resources\\mapper\\" + getPackageConfig()
             .getModuleName()
             + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
       }

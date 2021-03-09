@@ -13,6 +13,7 @@
 
   <modules>
     <module>base</module>
+    <module>demo</module>
   </modules>
 
   <parent>
