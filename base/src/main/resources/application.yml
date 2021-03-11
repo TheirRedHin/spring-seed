@@ -12,3 +12,12 @@ spring:
 
 server:
   port: 8888
+
+java:
+  naming:
+    factory:
+      initial: com.bes.mq.jndi.interfaces.NamingContextFactory
+      url:
+        pkgs: com.bes.mq.jndi.interfaces
+    provider:
+      url: bmq://192.168.1.36:3300

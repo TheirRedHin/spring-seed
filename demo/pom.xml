@@ -29,6 +29,14 @@
       <groupId>org.springframework.boot</groupId>
       <scope>test</scope>
     </dependency>
+
+
+    <dependency>
+      <artifactId>besmq-client</artifactId>
+      <groupId>com.bes.mq</groupId>
+      <version>1.0</version>
+    </dependency>
+
   </dependencies>
   <description>Demo project for Spring Boot</description>
   <groupId>com.redhin</groupId>
