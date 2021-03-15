@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>rabbitmq</artifactId>
+  <dependencies>
+    <dependency>
+      <artifactId>base</artifactId>
+      <groupId>com.redhin</groupId>
+      <version>${parent.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp -->
+    <dependency>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <version>2.4.3</version>
+    </dependency>
+
+  </dependencies>
+  <groupId>com.redhin</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <name>bes</name>
+  <parent>
+    <artifactId>spring-seed</artifactId>
+    <groupId>com.redhin</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <url>http://maven.apache.org</url>
+
+  <version>0.0.1-SNAPSHOT</version>
+</project>

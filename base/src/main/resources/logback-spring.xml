@@ -54,13 +54,13 @@
 	</springProfile>
 	<springProfile name="uat">
 		<root level="INFO">
-			<appender-ref ref="syslog" />
+<!--			<appender-ref ref="syslog" />-->
 			<appender-ref ref="STDOUT" />
 		</root>
 	</springProfile>
 	<springProfile name="prod">
 		<root level="ERROR">
-			<appender-ref ref="syslog" />
+			<!--			<appender-ref ref="syslog" />-->
 		</root>
 	</springProfile>
 </configuration>
