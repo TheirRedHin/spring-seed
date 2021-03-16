@@ -45,11 +45,11 @@
 	<springProfile name="dev">
 		<!-- 开发环境时激活 -->
 		<root level="info">
-			<appender-ref ref="STDOUT" />
+			<appender-ref ref="STDOUT"/>
 		</root>
 		<!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
-		<logger name="com.redhin" level="DEBUG" additivity="false">
-			<appender-ref ref="STDOUT" />
+		<logger additivity="false" level="DEBUG" name="com.project">
+			<appender-ref ref="STDOUT"/>
 		</logger>
 	</springProfile>
 	<springProfile name="uat">

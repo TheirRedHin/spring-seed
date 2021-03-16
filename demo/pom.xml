@@ -15,7 +15,13 @@
 
     <dependency>
       <artifactId>base</artifactId>
-      <groupId>com.redhin</groupId>
+      <groupId>com.project</groupId>
+      <version>${parent.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>rabbitmq</artifactId>
+      <groupId>com.project</groupId>
       <version>${parent.version}</version>
     </dependency>
 
@@ -39,12 +45,12 @@
 
   </dependencies>
   <description>Demo project for Spring Boot</description>
-  <groupId>com.redhin</groupId>
+  <groupId>com.project</groupId>
   <modelVersion>4.0.0</modelVersion>
   <name>demo</name>
   <parent>
     <artifactId>spring-seed</artifactId>
-    <groupId>com.redhin</groupId>
+    <groupId>com.project</groupId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <properties>

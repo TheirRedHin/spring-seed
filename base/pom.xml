@@ -3,12 +3,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <groupId>com.project</groupId>
   <parent>
-    <groupId>com.redhin</groupId>
+    <groupId>com.project</groupId>
     <artifactId>spring-seed</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.redhin</groupId>
   <artifactId>base</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>base</name>
