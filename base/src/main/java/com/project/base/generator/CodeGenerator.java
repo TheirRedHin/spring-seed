@@ -1,4 +1,4 @@
-package com.project;
+package com.project.base.generator;
 
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
