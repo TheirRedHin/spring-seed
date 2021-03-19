@@ -6,11 +6,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * 服务启动成功的监听器
- *
- * @company 广州宏天软件股份有限公司
- * @author heyifan
- * @email heyf@jee-soft.cn
- * @date 2019年6月27日
  */
 @Component
 public class ApplicationReadyEventListener implements  ApplicationListener<ApplicationReadyEvent>{

@@ -18,12 +18,12 @@
       <groupId>com.project</groupId>
       <version>${parent.version}</version>
     </dependency>
-
     <dependency>
-      <artifactId>rabbitmq</artifactId>
       <groupId>com.project</groupId>
+      <artifactId>rabbitmq</artifactId>
       <version>${parent.version}</version>
     </dependency>
+
 
     <dependency>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -37,11 +37,6 @@
     </dependency>
 
 
-    <dependency>
-      <artifactId>besmq-client</artifactId>
-      <groupId>com.bes.mq</groupId>
-      <version>1.0</version>
-    </dependency>
 
   </dependencies>
   <description>Demo project for Spring Boot</description>

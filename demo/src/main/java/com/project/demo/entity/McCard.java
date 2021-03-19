@@ -1,5 +1,6 @@
 package com.project.demo.entity;
 
+import com.project.base.util.JsonUtil;
 import java.io.Serializable;
 
 /**
@@ -36,9 +37,6 @@ public class McCard implements Serializable {
 
     @Override
     public String toString() {
-        return "McCard{" +
-            "id=" + id +
-            ", name=" + name +
-            "}";
+        return JsonUtil.toJsonString(this);
     }
 }
