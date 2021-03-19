@@ -4,6 +4,13 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>rabbitmq</artifactId>
+  <modelVersion>4.0.0</modelVersion>
+  <name>rabbitmq</name>
+  <parent>
+    <artifactId>spring-seed</artifactId>
+    <groupId>com.project</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
   <dependencies>
     <dependency>
       <artifactId>base</artifactId>
@@ -27,18 +34,4 @@
     </dependency>
 
   </dependencies>
-  <groupId>com.project</groupId>
-  <modelVersion>4.0.0</modelVersion>
-  <name>bes</name>
-  <parent>
-    <artifactId>spring-seed</artifactId>
-    <groupId>com.project</groupId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <url>http://maven.apache.org</url>
-
-  <version>0.0.1-SNAPSHOT</version>
 </project>
