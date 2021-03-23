@@ -4,29 +4,25 @@ package com.project.base.generator;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.FileOutConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.TemplateConfig;
+import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CodeGenerator {
 
-  private final static String DataSourceUrl = "jdbc:mysql://192.168.1.36:3308/test?useUnicode=true&useSSL=false&characterEncoding=utf8";
-  private final static String DataSourceDriver = "com.mysql.cj.jdbc.Driver";
-  private final static String DataSourceUser = "root";
-  private final static String DataSourcePwd = "root";
-  private final static String Author = "redHin";
-  private final static String Parent = "com.project.demo";
-  private final static String childModuleName = "demo";
-  private final static String ModuleName = "";
-  private final static String TableName = "mc_card";
+  private final static String DATA_SOURCE_URL = "jdbc:mysql://192.168.1.36:3308/test?useUnicode=true&useSSL=false&characterEncoding=utf8";
+  private final static String DATA_SOURCE_DRIVER = "com.mysql.cj.jdbc.Driver";
+  private final static String DATA_SOURCE_USER = "root";
+  private final static String DATA_SOURCE_PWD = "root";
+  private final static String AUTHOR = "redHin";
+  private final static String PARENT = "com.project.demo";
+  private final static String CHILD_MODULE_NAME = "demo";
+  private final static String MODULE_NAME = "";
+  private final static String TABLE_NAME = "mc_card";
 
 
   public static void main(String[] args) {
@@ -40,7 +36,7 @@ public class CodeGenerator {
     // 2.设置全局配置
     gen.setGlobalConfig(getGlobalConfig());
     // 3.设置策略配置
-    gen.setStrategy(getStrategyConfig(TableName));
+    gen.setStrategy(getStrategyConfig(TABLE_NAME));
     // 4.设置包配置
     gen.setPackageInfo(getPackageConfig());
     // 5.设置自定义属性
@@ -76,10 +72,10 @@ public class CodeGenerator {
    */
   private static DataSourceConfig getDataSource() {
     DataSourceConfig dsc = new DataSourceConfig();
-    dsc.setUrl(DataSourceUrl);
-    dsc.setDriverName(DataSourceDriver);
-    dsc.setUsername(DataSourceUser);
-    dsc.setPassword(DataSourcePwd);
+    dsc.setUrl(DATA_SOURCE_URL);
+    dsc.setDriverName(DATA_SOURCE_DRIVER);
+    dsc.setUsername(DATA_SOURCE_USER);
+    dsc.setPassword(DATA_SOURCE_PWD);
     return dsc;
   }
 
@@ -91,8 +87,8 @@ public class CodeGenerator {
   private static GlobalConfig getGlobalConfig() {
     GlobalConfig gc = new GlobalConfig();
     String projectPath = System.getProperty("user.dir");
-    gc.setOutputDir(projectPath + "\\" + childModuleName + "\\src\\main\\java");
-    gc.setAuthor(Author);
+    gc.setOutputDir(projectPath + "\\" + CHILD_MODULE_NAME + "\\src\\main\\java");
+    gc.setAuthor(AUTHOR);
     gc.setOpen(false);
     return gc;
   }
@@ -104,18 +100,20 @@ public class CodeGenerator {
    */
   private static PackageConfig getPackageConfig() {
     PackageConfig pc = new PackageConfig();
-    pc.setModuleName(ModuleName);
-    pc.setParent(Parent);
+    pc.setModuleName(MODULE_NAME);
+    pc.setParent(PARENT);
     return pc;
   }
 
   private static StrategyConfig getStrategyConfig(String... tableNames) {
     return new StrategyConfig()
-        // .setCapitalMode(true)// 全局大写命名
-        //.setDbColumnUnderline(true)//全局下划线命名
-        //.setTablePrefix(new String[]{prefix})// 此处可以修改为您的表前缀
-        .setNaming(NamingStrategy.underline_to_camel)// 表名生成策略
-        .setInclude(tableNames) // 需要生成的表
+            // .setCapitalMode(true)// 全局大写命名
+            //.setDbColumnUnderline(true)//全局下划线命名
+            //.setTablePrefix(new String[]{prefix})// 此处可以修改为您的表前缀
+            // 表名生成策略
+            .setNaming(NamingStrategy.underline_to_camel)
+            // 需要生成的表
+            .setInclude(tableNames)
         .setRestControllerStyle(true);
 //        // 自定义实体父类
 //        .setSuperEntityClass("com.hotent.base.entity.BaseModel")
@@ -144,10 +142,10 @@ public class CodeGenerator {
       @Override
       public String outputFile(TableInfo tableInfo) {
         // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-        return System.getProperty("user.dir") + "\\" + childModuleName
-            + "\\src\\main\\resources\\mapper\\" + getPackageConfig()
-            .getModuleName()
-            + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+        return System.getProperty("user.dir") + "\\" + CHILD_MODULE_NAME
+                + "\\src\\main\\resources\\mapper\\" + getPackageConfig()
+                .getModuleName()
+                + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
       }
     });
     cfg.setFileOutConfigList(focList);

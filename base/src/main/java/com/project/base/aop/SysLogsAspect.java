@@ -4,20 +4,23 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.project.base.constants.RabbitConstant;
 import com.project.base.jms.JmsProducer;
 import com.project.base.util.JsonUtil;
-import javax.annotation.Resource;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 /**
  * 日志切面类
+ *
+ * @author Admin
  */
 @Aspect
 @Component
 public class SysLogsAspect {
 
-  @Resource
+    @Resource
   JmsProducer jmsProducer;
 
   /**
@@ -25,7 +28,6 @@ public class SysLogsAspect {
    *
    * @param joinPoint 切面信息
    * @return 继续进行
-   * @throws Throwable
    */
   @Around("execution(* *..*Controller.*(..))")
   public Object sysLogs(ProceedingJoinPoint joinPoint) throws Throwable {

@@ -18,6 +18,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.project.base.exception.BaseException;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -33,11 +34,11 @@ import java.util.Map.Entry;
  */
 public class JsonUtil {
 
-  private static final ObjectMapper mapper = new ObjectMapper();
+  private static final ObjectMapper MAPPER = new ObjectMapper();
 
   static {
     // 忽略未知属性
-    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     //设置JSON时间格式
     SimpleDateFormat myDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     JavaTimeModule javaTimeModule = new JavaTimeModule();
@@ -49,11 +50,11 @@ public class JsonUtil {
     javaTimeModule.addSerializer(LocalTime.class, new LocalTimeSerializer(timeFormat));
 
     javaTimeModule
-        .addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(dateTimeFormat));
+            .addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(dateTimeFormat));
     javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(dateFormat));
     javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(timeFormat));
-    mapper.registerModule(javaTimeModule);
-    mapper.setDateFormat(myDateFormat);
+    MAPPER.registerModule(javaTimeModule);
+    MAPPER.setDateFormat(myDateFormat);
   }
 
   /**
@@ -62,7 +63,7 @@ public class JsonUtil {
    * @return ObjectMapper
    */
   public static ObjectMapper getMapper() {
-    return mapper;
+    return MAPPER;
   }
 
   /**
@@ -77,7 +78,7 @@ public class JsonUtil {
    */
   public static <C> C toBean(String json, Class<C> cls)
       throws JsonParseException, JsonMappingException, IOException {
-    return mapper.readValue(json, cls);
+    return MAPPER.readValue(json, cls);
   }
 
 
@@ -89,7 +90,7 @@ public class JsonUtil {
    * @throws IOException
    */
   public static JsonNode toJsonNode(String json) throws IOException {
-    return mapper.readTree(json);
+    return MAPPER.readTree(json);
   }
 
   /**
@@ -104,7 +105,7 @@ public class JsonUtil {
    */
   public static <C> C toBean(String json, TypeReference<C> typeRef)
       throws JsonParseException, JsonMappingException, IOException {
-    C list = mapper.readValue(json, typeRef);
+    C list = MAPPER.readValue(json, typeRef);
     return list;
   }
 
@@ -116,7 +117,7 @@ public class JsonUtil {
    * @throws IOException
    */
   public static String toJson(Object obj) throws IOException {
-    return mapper.writeValueAsString(obj);
+    return MAPPER.writeValueAsString(obj);
   }
 
   /**
@@ -130,7 +131,7 @@ public class JsonUtil {
       return obj.toString();
     }
     try {
-      return mapper.writeValueAsString(obj);
+      return MAPPER.writeValueAsString(obj);
     } catch (JsonProcessingException e) {
       throw new BaseException("1", e.getMessage());
     }
@@ -147,7 +148,7 @@ public class JsonUtil {
 
   @SuppressWarnings("unchecked")
   public static <T> Map<String, T> toMap(String json) throws IOException {
-    Map<String, T> map = (Map<String, T>) mapper.readValue(json, Map.class);
+    Map<String, T> map = (Map<String, T>) MAPPER.readValue(json, Map.class);
     return map;
   }
 
@@ -383,11 +384,11 @@ public class JsonUtil {
 
 
   public static ObjectNode createObjectNode() {
-    return mapper.createObjectNode();
+    return MAPPER.createObjectNode();
   }
 
   public static ArrayNode createArrayNode() {
-    return mapper.createArrayNode();
+    return MAPPER.createArrayNode();
   }
 
 

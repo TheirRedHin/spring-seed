@@ -3,7 +3,9 @@ package com.project.base.enumerate;
 public enum ResponseEnums {
 
 
+  // 运行时异常
   RUNTIME_EXCEPTION("001", "运行时异常"),
+  // 空指针异常
   NULL_POINTER_EXCEPTION("002", "空指针异常"),
   CLASS_CAST_EXCEPTION("003", "类型转换异常"),
   IO_EXCEPTION("004", "IO异常"),

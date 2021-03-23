@@ -4,20 +4,20 @@ import com.project.base.enumerate.ResponseEnums;
 
 public class CommonResultGenerator {
 
-  public static <T> CommonResult<T> SUCCESS(T data) {
+  public static <T> CommonResult<T> success(T data) {
     return new CommonResult<T>()
-        .setState(true)
-        .setCode(ResponseEnums.SUCCESS.getCode())
-        .setMessage(ResponseEnums.SUCCESS.getMessage())
-        .setData(data);
+            .setState(true)
+            .setCode(ResponseEnums.SUCCESS.getCode())
+            .setMessage(ResponseEnums.SUCCESS.getMessage())
+            .setData(data);
   }
 
-  public static <T> CommonResult<T> FAIL(ResponseEnums responseEnums, T data) {
+  public static <T> CommonResult<T> fail(ResponseEnums responseEnums, T data) {
     return new CommonResult<T>()
-        .setState(false)
-        .setCode(responseEnums.getCode())
-        .setMessage(responseEnums.getMessage())
-        .setData(data);
+            .setState(false)
+            .setCode(responseEnums.getCode())
+            .setMessage(responseEnums.getMessage())
+            .setData(data);
   }
 
   public static <T> CommonResult<T> getCommonResult(Boolean state, String code, String message,
