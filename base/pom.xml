@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.project</groupId>
-    <artifactId>spring-seed</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
   <artifactId>base</artifactId>
   <dependencies>
     <!--Spring Boot依赖-->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
+      <groupId>org.springframework.boot</groupId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
+      <groupId>org.springframework.boot</groupId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <groupId>org.springframework.boot</groupId>
       <scope>test</scope>
     </dependency>
     <!--MyBatis 及 插件依赖-->
     <dependency>
-      <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus-boot-starter</artifactId>
+      <groupId>com.baomidou</groupId>
     </dependency>
     <dependency>
-      <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus</artifactId>
+      <groupId>com.baomidou</groupId>
     </dependency>
     <dependency>
-      <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus-generator</artifactId>
+      <groupId>com.baomidou</groupId>
     </dependency>
     <dependency>
-      <groupId>com.baomidou</groupId>
       <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+      <groupId>com.baomidou</groupId>
     </dependency>
     <!--常用库依赖-->
     <dependency>
-      <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
+      <groupId>commons-codec</groupId>
     </dependency>
     <dependency>
-      <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
+      <groupId>org.apache.commons</groupId>
       <version>3.6</version>
     </dependency>
     <dependency>
-      <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
+      <groupId>com.google.guava</groupId>
       <version>23.0</version>
     </dependency>
     <!--MySQL JDBC驱动-->
     <dependency>
-      <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
+      <groupId>mysql</groupId>
       <scope>runtime</scope>
     </dependency>
     <!--阿里 Druid Spring Boot Starter依赖-->
     <dependency>
-      <groupId>com.alibaba</groupId>
       <artifactId>druid-spring-boot-starter</artifactId>
+      <groupId>com.alibaba</groupId>
       <version>1.1.10</version>
     </dependency>
     <!--代码生成器依赖-->
     <dependency>
-      <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
-      <version>2.3.23</version>
+      <groupId>org.freemarker</groupId>
       <scope>test</scope>
+      <version>2.3.23</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
-      <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>junit</groupId>
       <scope>test</scope>
+      <version>4.12</version>
     </dependency>
   </dependencies>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>spring-seed</artifactId>
+    <groupId>com.project</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
 
 </project>

@@ -4,6 +4,7 @@ import com.project.base.enumerate.ResponseEnums;
 import com.project.base.exception.BaseException;
 import com.project.base.model.CommonResultGenerator;
 import com.project.base.util.JsonUtil;
+import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.ConversionNotSupportedException;
@@ -16,8 +17,6 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.io.IOException;
 
 /**
  * 全局异常处理
@@ -236,7 +235,7 @@ public class GlobalExceptionHandler {
    */
   private <T extends Throwable> String resultFormat(BaseException ex) {
     String errorJson = JsonUtil.toJsonString(
-            CommonResultGenerator.getCommonResult(false, ex.getCode(), ex.getMessage(), ""));
+        CommonResultGenerator.getCommonResult(false, ex.getCode(), ex.getMessage(), ""));
     log.error(errorJson);
     ex.printStackTrace();
     return errorJson;

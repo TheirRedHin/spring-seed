@@ -18,7 +18,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.project.base.exception.BaseException;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -50,7 +49,7 @@ public class JsonUtil {
     javaTimeModule.addSerializer(LocalTime.class, new LocalTimeSerializer(timeFormat));
 
     javaTimeModule
-            .addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(dateTimeFormat));
+        .addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(dateTimeFormat));
     javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(dateFormat));
     javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(timeFormat));
     MAPPER.registerModule(javaTimeModule);

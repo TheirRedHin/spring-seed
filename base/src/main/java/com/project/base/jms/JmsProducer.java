@@ -12,6 +12,6 @@ public interface JmsProducer {
    * @param routingKey 路由key
    * @param object     消息
    */
-  void send(String exchange, String routingKey, Object object);
+  void send(Object object);
 
 }

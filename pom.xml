@@ -2,105 +2,127 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.project</groupId>
   <artifactId>spring-seed</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
 
-  <name>spring-seed</name>
-  <description>Spring Project</description>
-
-  <modules>
-    <module>base</module>
-    <module>demo</module>
-    <module>rabbitmq</module>
-  </modules>
-
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.3.5.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
-  </parent>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
-    <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
-    <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-    <spring-cloud-netflix.version>2.2.2.RELEASE</spring-cloud-netflix.version>
-    <mybatisplus.version>3.4.1</mybatisplus.version>
-    <dynamic-datasource.version>3.0.0</dynamic-datasource.version>
-    <logback.version>1.2.3</logback.version>
-    <log4j-over-slf4j.version>1.7.26</log4j-over-slf4j.version>
-    <skipTests>true</skipTests>
-  </properties>
-
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>com.baomidou.mybatisplus.samples.generator.MpGeneratorTest</exclude>
+          </excludes>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+    </plugins>
+  </build>
   <dependencyManagement>
     <dependencies>
       <!-- spring boot -->
       <dependency>
-        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring.boot.version}</version>
+        <groupId>org.springframework.boot</groupId>
         <scope>import</scope>
         <type>pom</type>
+        <version>${spring.boot.version}</version>
       </dependency>
       <!-- spring cloud -->
       <dependency>
-        <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${spring-cloud.version}</version>
-        <type>pom</type>
+        <groupId>org.springframework.cloud</groupId>
         <scope>import</scope>
+        <type>pom</type>
+        <version>${spring-cloud.version}</version>
       </dependency>
       <!-- cloud netflix -->
       <dependency>
-        <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-netflix</artifactId>
-        <version>${spring-cloud-netflix.version}</version>
-        <type>pom</type>
+        <groupId>org.springframework.cloud</groupId>
         <scope>import</scope>
+        <type>pom</type>
+        <version>${spring-cloud-netflix.version}</version>
       </dependency>
       <!--MyBatis 及 插件依赖-->
       <dependency>
-        <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-boot-starter</artifactId>
+        <groupId>com.baomidou</groupId>
         <version>${mybatisplus.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus</artifactId>
+        <groupId>com.baomidou</groupId>
         <version>${mybatisplus.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-generator</artifactId>
+        <groupId>com.baomidou</groupId>
         <version>${mybatisplus.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.baomidou</groupId>
         <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        <groupId>com.baomidou</groupId>
         <version>${dynamic-datasource.version}</version>
       </dependency>
       <!-- 日志 -->
       <dependency>
-        <groupId>p6spy</groupId>
         <artifactId>p6spy</artifactId>
+        <groupId>p6spy</groupId>
         <version>3.8.5</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
         <artifactId>log4j-over-slf4j</artifactId>
+        <groupId>org.slf4j</groupId>
         <version>${log4j-over-slf4j.version}</version>
       </dependency>
 
 
     </dependencies>
   </dependencyManagement>
+  <description>Spring Project</description>
+  <groupId>com.project</groupId>
+
+  <modelVersion>4.0.0</modelVersion>
+  <modules>
+    <module>base</module>
+    <module>demo</module>
+    <module>rabbitmq</module>
+    <module>kafka</module>
+  </modules>
+
+  <name>spring-seed</name>
+
+  <packaging>pom</packaging>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.3.5.RELEASE</version> <!-- lookup parent from repository -->
+  </parent>
+
+  <properties>
+    <dynamic-datasource.version>3.0.0</dynamic-datasource.version>
+    <java.version>1.8</java.version>
+    <log4j-over-slf4j.version>1.7.26</log4j-over-slf4j.version>
+    <logback.version>1.2.3</logback.version>
+    <mybatisplus.version>3.4.1</mybatisplus.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <skipTests>true</skipTests>
+    <spring-cloud-netflix.version>2.2.2.RELEASE</spring-cloud-netflix.version>
+    <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+    <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+  </properties>
 
 
   <repositories>
@@ -115,33 +137,12 @@
     <repository>
       <id>snapshot</id>
       <name>mp-snapshot</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
     </repository>
   </repositories>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>com.baomidou.mybatisplus.samples.generator.MpGeneratorTest</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <version>0.0.1-SNAPSHOT</version>
 </project>

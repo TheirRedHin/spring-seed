@@ -4,11 +4,15 @@ package com.project.base.generator;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.FileOutConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,13 +111,13 @@ public class CodeGenerator {
 
   private static StrategyConfig getStrategyConfig(String... tableNames) {
     return new StrategyConfig()
-            // .setCapitalMode(true)// 全局大写命名
-            //.setDbColumnUnderline(true)//全局下划线命名
-            //.setTablePrefix(new String[]{prefix})// 此处可以修改为您的表前缀
-            // 表名生成策略
-            .setNaming(NamingStrategy.underline_to_camel)
-            // 需要生成的表
-            .setInclude(tableNames)
+        // .setCapitalMode(true)// 全局大写命名
+        //.setDbColumnUnderline(true)//全局下划线命名
+        //.setTablePrefix(new String[]{prefix})// 此处可以修改为您的表前缀
+        // 表名生成策略
+        .setNaming(NamingStrategy.underline_to_camel)
+        // 需要生成的表
+        .setInclude(tableNames)
         .setRestControllerStyle(true);
 //        // 自定义实体父类
 //        .setSuperEntityClass("com.hotent.base.entity.BaseModel")
@@ -143,9 +147,9 @@ public class CodeGenerator {
       public String outputFile(TableInfo tableInfo) {
         // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
         return System.getProperty("user.dir") + "\\" + CHILD_MODULE_NAME
-                + "\\src\\main\\resources\\mapper\\" + getPackageConfig()
-                .getModuleName()
-                + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+            + "\\src\\main\\resources\\mapper\\" + getPackageConfig()
+            .getModuleName()
+            + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
       }
     });
     cfg.setFileOutConfigList(focList);

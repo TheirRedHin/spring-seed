@@ -1,7 +1,6 @@
 package com.project.rabbitmq;
 
-import com.project.base.constants.RabbitConstant;
-import com.project.rabbitmq.producer.DefaultJmsProducer;
+import com.project.rabbitmq.producer.RabbitmqProducer;
 import javax.annotation.Resource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,12 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class RabbitMqHelloTest {
 
   @Resource
-  private DefaultJmsProducer defaultJmsProducer;
+  private RabbitmqProducer rabbitmqProducer;
 
   @Test
   public void hello() throws Exception {
-    defaultJmsProducer
-        .send(RabbitConstant.EXCHANGE_TOPICS_INFORM, RabbitConstant.ROUTING_KEY_LOG, "test");
+    rabbitmqProducer
+        .send("test");
   }
 
 }

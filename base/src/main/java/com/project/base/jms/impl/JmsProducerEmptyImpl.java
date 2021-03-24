@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class JmsProducerEmptyImpl implements JmsProducer {
 
   @Override
-  public void send(String exchange, String routingKey, Object object) {
+  public void send(Object object) {
 
   }
 }

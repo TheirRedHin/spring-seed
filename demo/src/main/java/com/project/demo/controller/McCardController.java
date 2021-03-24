@@ -4,12 +4,11 @@ package com.project.demo.controller;
 import com.project.base.exception.BaseException;
 import com.project.demo.entity.McCard;
 import com.project.demo.service.IMcCardService;
+import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * <p>

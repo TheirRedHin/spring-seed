@@ -19,8 +19,13 @@
       <version>${parent.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.project</groupId>
       <artifactId>rabbitmq</artifactId>
+      <groupId>com.project</groupId>
+      <version>${parent.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>kafka</artifactId>
+      <groupId>com.project</groupId>
       <version>${parent.version}</version>
     </dependency>
 
@@ -35,7 +40,6 @@
       <groupId>org.springframework.boot</groupId>
       <scope>test</scope>
     </dependency>
-
 
 
   </dependencies>

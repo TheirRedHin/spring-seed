@@ -8,7 +8,7 @@ spring:
     active: dev
   # rabbitmq 配置
   rabbitmq:
-    host: 192.168.1.36
+    host: 192.168.31.95
     port: 5672
     username: admin
     password: admin
@@ -20,3 +20,7 @@ spring:
 # 服务端口
 server:
   port: 8888
+
+# 消息中间件类型 kafka rabbitmq
+jms:
+  type: kafka

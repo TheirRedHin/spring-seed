@@ -6,15 +6,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 /**
  * 日志消息消费者
  */
 @Service
-public class LogConsumer {
+@ConditionalOnProperty(value = "jms.type", havingValue = "rabbitmq")
+public class RabbitmqLogConsumer {
 
-  protected static final Logger LOGGER = LoggerFactory.getLogger(LogConsumer.class);
+  protected static final Logger LOGGER = LoggerFactory.getLogger(RabbitmqLogConsumer.class);
 
   /**
    * 监听 QUEUE_INFORM_LOG 队列

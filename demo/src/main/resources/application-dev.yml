@@ -6,7 +6,7 @@ spring:
     dynamic:
       datasource:
         master:
-          url: jdbc:mysql://192.168.1.36:3308/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+          url: jdbc:mysql://192.168.31.95:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
           username: root
           password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
