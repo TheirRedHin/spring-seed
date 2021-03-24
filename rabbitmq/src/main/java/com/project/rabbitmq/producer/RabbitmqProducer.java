@@ -1,7 +1,7 @@
 package com.project.rabbitmq.producer;
 
-import com.project.base.constants.RabbitConstant;
 import com.project.base.jms.JmsProducer;
+import com.project.rabbitmq.constants.RabbitConstant;
 import javax.annotation.Resource;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 @Configuration
 @ComponentScan({"com.project.*"})
-@MapperScan(basePackages = {"com.project.**.mapper"})
 public class DemoApplication {
 
   public static void main(String[] args) {

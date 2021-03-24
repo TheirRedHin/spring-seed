@@ -1,6 +1,6 @@
 package com.project.rabbitmq.config;
 
-import com.project.base.constants.RabbitConstant;
+import com.project.rabbitmq.constants.RabbitConstant;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Exchange;

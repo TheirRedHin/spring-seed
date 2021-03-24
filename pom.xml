@@ -24,6 +24,13 @@
         </configuration>
         <groupId>org.apache.maven.plugins</groupId>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <configuration>
+          <generateBackupPoms>false</generateBackupPoms>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <dependencyManagement>
@@ -77,21 +84,21 @@
       <dependency>
         <artifactId>p6spy</artifactId>
         <groupId>p6spy</groupId>
-        <version>3.8.5</version>
+        <version>3.8.7</version>
       </dependency>
       <dependency>
         <artifactId>log4j-over-slf4j</artifactId>
         <groupId>org.slf4j</groupId>
         <version>${log4j-over-slf4j.version}</version>
       </dependency>
-
-
     </dependencies>
   </dependencyManagement>
+
   <description>Spring Project</description>
   <groupId>com.project</groupId>
 
   <modelVersion>4.0.0</modelVersion>
+
   <modules>
     <module>base</module>
     <module>demo</module>
@@ -101,19 +108,19 @@
 
   <name>spring-seed</name>
 
-  <packaging>pom</packaging>
 
+  <packaging>pom</packaging>
   <parent>
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>2.3.5.RELEASE</version> <!-- lookup parent from repository -->
+    <version>2.4.4</version> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
     <dynamic-datasource.version>3.0.0</dynamic-datasource.version>
     <java.version>1.8</java.version>
-    <log4j-over-slf4j.version>1.7.26</log4j-over-slf4j.version>
+    <log4j-over-slf4j.version>1.7.25</log4j-over-slf4j.version>
     <logback.version>1.2.3</logback.version>
     <mybatisplus.version>3.4.1</mybatisplus.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -144,5 +151,5 @@
     </repository>
   </repositories>
 
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1.2-SNATHOST</version>
 </project>

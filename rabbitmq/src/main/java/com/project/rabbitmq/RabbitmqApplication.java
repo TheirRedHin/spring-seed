@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
 @Configuration
-@MapperScan(basePackages = {"com.project.**.dao"})
-@ComponentScan({"com.project.*"})
 public class RabbitmqApplication {
 
   public static void main(String[] args) {

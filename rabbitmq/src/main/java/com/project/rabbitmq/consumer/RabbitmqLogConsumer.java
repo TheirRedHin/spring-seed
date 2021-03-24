@@ -1,6 +1,6 @@
 package com.project.rabbitmq.consumer;
 
-import com.project.base.constants.RabbitConstant;
+import com.project.rabbitmq.constants.RabbitConstant;
 import com.rabbitmq.client.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

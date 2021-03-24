@@ -1,4 +1,4 @@
-package com.project.base.constants;
+package com.project.rabbitmq.constants;
 
 /**
  * Rabbit 常量

@@ -38,4 +38,16 @@ public class SysLogsAspect {
     return joinPoint.proceed();
   }
 
+  @Around("execution(* com.project..*ServiceImpl.*(..))")
+  public Object mapperLogs(ProceedingJoinPoint joinPoint) throws Throwable {
+    Class<?> targetClass = joinPoint.getTarget().getClass();
+    String methodName = joinPoint.getSignature().getName();
+    ObjectNode objectNode = JsonUtil.getMapper().createObjectNode();
+    objectNode.put("className", targetClass.getName());
+    objectNode.put("methodName", methodName);
+    System.out.println("当前日志");
+    System.out.println(objectNode.toString());
+    return joinPoint.proceed();
+  }
+
 }

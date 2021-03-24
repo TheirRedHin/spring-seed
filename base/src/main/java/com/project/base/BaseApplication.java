@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
 @Configuration
-@MapperScan(basePackages = {"com.project.**.dao"})
 public class BaseApplication {
 
   public static void main(String[] args) {

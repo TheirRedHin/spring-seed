@@ -8,9 +8,7 @@ public interface JmsProducer {
   /**
    * 发送消息
    *
-   * @param exchange   交换机
-   * @param routingKey 路由key
-   * @param object     消息
+   * @param object 消息
    */
   void send(Object object);
 
