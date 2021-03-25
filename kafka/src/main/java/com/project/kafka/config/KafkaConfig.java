@@ -26,13 +26,13 @@ public class KafkaConfig {
   @Value("${server.port}")
   public String applicationPort;
   //@Value("${spring.kafka.bootstrap-servers}")
-  private String servers = "192.168.31.95:9092";
+  private String servers = "192.168.31.95:9092,192.168.31.95:9093";
 //  @Value("${spring.kafka.group-id:eipGroup}")
 //  private String groupId;
 
   public Map<String, Object> producerConfigs() {
 
-    Map<String, Object> props = new HashMap<String, Object>();
+    Map<String, Object> props = new HashMap<>(10);
     // 集群的服务器地址
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
     //  消息缓存
@@ -58,17 +58,17 @@ public class KafkaConfig {
 
   @Bean
   public ProducerFactory<String, String> producerFactory() {
-    return new DefaultKafkaProducerFactory<String, String>(producerConfigs());
+    return new DefaultKafkaProducerFactory<>(producerConfigs());
   }
 
   @Bean
   public KafkaTemplate<String, String> kafkaTemplate() {
-    return new KafkaTemplate<String, String>(producerFactory());
+    return new KafkaTemplate<>(producerFactory());
   }
 
 
   public Map<String, Object> consumerConfigs() {
-    Map<String, Object> props = new HashMap<String, Object>();
+    Map<String, Object> props = new HashMap(8);
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
     // 消费者组
     props.put(ConsumerConfig.GROUP_ID_CONFIG, applicationPort);

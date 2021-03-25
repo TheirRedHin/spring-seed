@@ -7,26 +7,35 @@ import javax.annotation.Resource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.ProducerListener;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 
 @Primary
 @Service
 @ConditionalOnProperty(value = "jms.type", havingValue = "kafka")
 public class KafkaProducer implements JmsProducer {
 
-
   private static final Log logger = LogFactory.getLog(KafkaProducer.class);
+
   @Resource
-  KafkaTemplate<Integer, Object> kafkaTemplate;
-  //  @Value("${jms.topic.name:eipTopic}")
-//  private String topicName;
-  @Resource
-  private ProducerListener producerListener;
+  KafkaTemplate<String, String> kafkaTemplate;
 
   @Override
   public void send(Object object) {
-    kafkaTemplate.setProducerListener(producerListener);
-    kafkaTemplate.send("sysLogQueue", object.toString());
+    ListenableFuture<SendResult<String, String>> future = kafkaTemplate
+        .send("test", object.toString());
+    future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+      @Override
+      public void onSuccess(SendResult<String, String> result) {
+        logger.info("生产者-发送消息成功：" + result.toString());
+      }
+
+      @Override
+      public void onFailure(Throwable ex) {
+        logger.info("生产者-发送消息失败：" + ex.getMessage());
+      }
+    });
   }
 }

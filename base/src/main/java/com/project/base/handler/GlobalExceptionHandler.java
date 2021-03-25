@@ -2,9 +2,11 @@ package com.project.base.handler;
 
 import com.project.base.enumerate.ResponseEnums;
 import com.project.base.exception.BaseException;
+import com.project.base.jms.JmsProducer;
 import com.project.base.model.CommonResultGenerator;
 import com.project.base.util.JsonUtil;
 import java.io.IOException;
+import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.ConversionNotSupportedException;
@@ -27,6 +29,9 @@ public class GlobalExceptionHandler {
 
   private static final String LOG_EXCEPTION_FORMAT = "Capture Exception By GlobalExceptionHandler: Code: %s Detail: %s";
   private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+  @Resource
+  JmsProducer jmsProducer;
 
   /**
    * 业务异常
@@ -221,7 +226,7 @@ public class GlobalExceptionHandler {
    */
   private <T extends Throwable> String resultFormat(ResponseEnums responseEnums, T ex) {
     String errorJson = JsonUtil.toJsonString(CommonResultGenerator.fail(responseEnums, ""));
-    log.error(errorJson);
+    jmsProducer.send(errorJson);
     ex.printStackTrace();
     return errorJson;
   }
@@ -236,7 +241,7 @@ public class GlobalExceptionHandler {
   private <T extends Throwable> String resultFormat(BaseException ex) {
     String errorJson = JsonUtil.toJsonString(
         CommonResultGenerator.getCommonResult(false, ex.getCode(), ex.getMessage(), ""));
-    log.error(errorJson);
+    jmsProducer.send(errorJson);
     ex.printStackTrace();
     return errorJson;
   }

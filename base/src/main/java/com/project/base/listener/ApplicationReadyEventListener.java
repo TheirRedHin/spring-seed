@@ -13,7 +13,7 @@ public class ApplicationReadyEventListener implements ApplicationListener<Applic
   @Override
   public void onApplicationEvent(ApplicationReadyEvent event) {
     System.out.println("***********************");
-    System.out.println(String.format("********%s********", "应用已启动"));
+    System.out.printf("********%s********%n", "应用已启动");
     System.out.println("***********************");
   }
 }

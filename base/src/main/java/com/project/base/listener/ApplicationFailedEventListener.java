@@ -13,7 +13,7 @@ public class ApplicationFailedEventListener implements ApplicationListener<Appli
   @Override
   public void onApplicationEvent(ApplicationFailedEvent event) {
     System.err.println("------------------------");
-    System.err.println(String.format("--------%s--------", "应用启动失败"));
+    System.err.printf("--------%s--------%n", "应用启动失败");
     System.err.println("------------------------");
   }
 }

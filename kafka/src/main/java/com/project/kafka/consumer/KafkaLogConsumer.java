@@ -13,11 +13,10 @@ public class KafkaLogConsumer {
 
   protected static final Logger LOGGER = LoggerFactory.getLogger(KafkaLogConsumer.class);
 
-  @KafkaListener(topics = "sysLogQueue", containerFactory = "kafkaListenerContainerFactory")
-  public void receiveQueue(ConsumerRecord<?, ?> record) {
+  @KafkaListener(topics = "test", containerFactory = "kafkaListenerContainerFactory")
+  public void testQueue(ConsumerRecord<?, ?> record) {
     String info = record.value().toString();
-    LOGGER.info("消息日志");
-    LOGGER.info(info);
+    LOGGER.info("消费者-消息处理成功：" +info);
   }
 
 }
