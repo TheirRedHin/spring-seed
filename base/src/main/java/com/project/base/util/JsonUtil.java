@@ -253,7 +253,7 @@ public class JsonUtil {
   public static boolean isContainsKey(JsonNode obj, String key) {
     if (obj != null && key != null) {
       for (Iterator<String> iterator = obj.fieldNames(); iterator.hasNext(); ) {
-        String name = (String) iterator.next();
+        String name = iterator.next();
         if (key.equals(name)) {
           return true;
         }

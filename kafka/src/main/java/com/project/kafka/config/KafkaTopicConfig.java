@@ -12,7 +12,7 @@ import org.springframework.kafka.core.KafkaAdmin;
 @Configuration
 public class KafkaTopicConfig {
 
-  private String servers = "192.168.31.95:9092,192.168.31.95:9093";
+  private final String servers = "192.168.31.95:9092,192.168.31.95:9093";
 
 
   @Bean
@@ -29,8 +29,8 @@ public class KafkaTopicConfig {
   }
 
   @Bean
-  public NewTopic topicInfo(){
-    return new NewTopic("test",3, (short) 3);
+  public NewTopic topicInfo() {
+    return new NewTopic("test", 3, (short) 3);
   }
 
 }

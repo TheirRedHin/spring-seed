@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandler {
 
   private static final String LOG_EXCEPTION_FORMAT = "Capture Exception By GlobalExceptionHandler: Code: %s Detail: %s";
-  private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+  private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
   @Resource
   JmsProducer jmsProducer;
@@ -225,7 +225,8 @@ public class GlobalExceptionHandler {
    * @return
    */
   private <T extends Throwable> String resultFormat(ResponseEnums responseEnums, T ex) {
-    String errorJson = JsonUtil.toJsonString(CommonResultGenerator.fail(responseEnums,  getExStackTrace(ex)));
+    String errorJson = JsonUtil
+        .toJsonString(CommonResultGenerator.fail(responseEnums, getExStackTrace(ex)));
     jmsProducer.send(errorJson);
     return errorJson;
   }
@@ -239,7 +240,8 @@ public class GlobalExceptionHandler {
    */
   private <T extends Throwable> String resultFormat(BaseException ex) {
     String errorJson = JsonUtil.toJsonString(
-        CommonResultGenerator.getCommonResult(false, ex.getCode(), ex.getMessage(), getExStackTrace(ex)));
+        CommonResultGenerator
+            .getCommonResult(false, ex.getCode(), ex.getMessage(), getExStackTrace(ex)));
     jmsProducer.send(errorJson);
     return errorJson;
   }

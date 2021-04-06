@@ -23,10 +23,10 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 @ConditionalOnProperty(value = "jms.type", havingValue = "kafka")
 public class KafkaConfig {
 
+  //@Value("${spring.kafka.bootstrap-servers}")
+  private final String servers = "192.168.31.95:9092,192.168.31.95:9093";
   @Value("${server.port}")
   public String applicationPort;
-  //@Value("${spring.kafka.bootstrap-servers}")
-  private String servers = "192.168.31.95:9092,192.168.31.95:9093";
 //  @Value("${spring.kafka.group-id:eipGroup}")
 //  private String groupId;
 

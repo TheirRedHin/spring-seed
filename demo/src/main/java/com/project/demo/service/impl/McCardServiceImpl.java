@@ -26,7 +26,7 @@ public class McCardServiceImpl extends ServiceImpl<McCardMapper, McCard> impleme
 
   @Cacheable(value = "test", key = "'list'", unless = "#result==null")
   @Override
-  public List<McCard> getMcCardList(){
+  public List<McCard> getMcCardList() {
     return mcCardMapper.getMcCardList();
   }
 

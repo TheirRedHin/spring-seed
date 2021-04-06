@@ -68,8 +68,8 @@
     </dependency>
     <!--redis依赖配置-->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-redis</artifactId>
+      <groupId>org.springframework.boot</groupId>
     </dependency>
     <!--代码生成器依赖-->
     <dependency>

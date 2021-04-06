@@ -16,8 +16,9 @@ public interface McCardMapper extends BaseMapper<McCard> {
 
   /**
    * mcCard 列表
+   *
    * @return
    */
-  public List<McCard> getMcCardList();
+  List<McCard> getMcCardList();
 
 }

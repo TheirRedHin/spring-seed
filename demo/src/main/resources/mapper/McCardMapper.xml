@@ -4,6 +4,7 @@
 <mapper namespace="com.project.demo.mapper.McCardMapper">
 
   <select id="getMcCardList" resultType="com.project.demo.entity.McCard">
-    select * from mc_card
+    select *
+    from mc_card
   </select>
 </mapper>

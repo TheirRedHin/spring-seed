@@ -30,7 +30,7 @@ public enum ResponseEnums {
   private String code;
   private String message;
 
-  private ResponseEnums(String code, String message) {
+  ResponseEnums(String code, String message) {
     this.code = code;
     this.message = message;
   }

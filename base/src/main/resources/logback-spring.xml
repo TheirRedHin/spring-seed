@@ -41,9 +41,9 @@
   <springProfile name="dev">
     <!-- 开发环境时激活 -->
 
-<!--    <logger additivity="false" level="WARN" name="org.apache.kafka">-->
-<!--      <appender-ref ref="STDOUT"/>-->
-<!--    </logger>-->
+    <!--    <logger additivity="false" level="WARN" name="org.apache.kafka">-->
+    <!--      <appender-ref ref="STDOUT"/>-->
+    <!--    </logger>-->
 
     <logger additivity="false" level="DEBUG" name="org.apache.ibatis">
       <appender-ref ref="STDOUT"/>

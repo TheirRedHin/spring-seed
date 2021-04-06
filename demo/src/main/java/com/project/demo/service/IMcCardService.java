@@ -16,10 +16,11 @@ public interface IMcCardService extends IService<McCard> {
 
   /**
    * 获取 mcCard 列表
+   *
    * @return
    */
-  public List<McCard> getMcCardList();
+  List<McCard> getMcCardList();
 
-  public String test();
+  String test();
 
 }
