@@ -76,6 +76,8 @@ public class KafkaConfig {
     props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
     // 自动位移提交间隔时间
     props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, 100);
+    props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 300000);
+    props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 10);
     // 消费组失效超时时间
     props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 10000);
     // 位移丢失和位移越界后的恢复起始位置

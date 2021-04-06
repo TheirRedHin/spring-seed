@@ -37,6 +37,7 @@ public class McCardController {
       "application/json; charset=utf-8"})
   public List<McCard> listTest() {
     List<McCard> mcCardList = iMcCardService.getMcCardList();
+    String test = iMcCardService.test();
     return mcCardList;
   }
 
@@ -50,7 +51,6 @@ public class McCardController {
   @RequestMapping("/zero")
   @ResponseBody
   public String zero() {
-    System.err.println("Controller测试");
     String info = "除0异常";
     int a = 1 / 0;
     return info;
@@ -59,7 +59,6 @@ public class McCardController {
   @RequestMapping("/null")
   @ResponseBody
   public String nullError() {
-    System.err.println("Controller测试");
     String info = "空指针异常";
     McCard mcCard = null;
     String name = mcCard.getName();

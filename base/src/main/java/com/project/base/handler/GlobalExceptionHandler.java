@@ -225,9 +225,8 @@ public class GlobalExceptionHandler {
    * @return
    */
   private <T extends Throwable> String resultFormat(ResponseEnums responseEnums, T ex) {
-    String errorJson = JsonUtil.toJsonString(CommonResultGenerator.fail(responseEnums, ""));
+    String errorJson = JsonUtil.toJsonString(CommonResultGenerator.fail(responseEnums,  getExStackTrace(ex)));
     jmsProducer.send(errorJson);
-    ex.printStackTrace();
     return errorJson;
   }
 
@@ -240,10 +239,19 @@ public class GlobalExceptionHandler {
    */
   private <T extends Throwable> String resultFormat(BaseException ex) {
     String errorJson = JsonUtil.toJsonString(
-        CommonResultGenerator.getCommonResult(false, ex.getCode(), ex.getMessage(), ""));
+        CommonResultGenerator.getCommonResult(false, ex.getCode(), ex.getMessage(), getExStackTrace(ex)));
     jmsProducer.send(errorJson);
-    ex.printStackTrace();
     return errorJson;
+  }
+
+  private <T extends Throwable> String getExStackTrace(T ex) {
+    ex.printStackTrace();
+    String exStackTrace = ex.toString();
+    StackTraceElement[] stackTrace = ex.getStackTrace();
+    for (StackTraceElement stackTraceElement : stackTrace) {
+      exStackTrace += "\n\tat " + stackTraceElement + "";
+    }
+    return exStackTrace;
   }
 
 }

@@ -16,7 +16,7 @@ public class KafkaLogConsumer {
   @KafkaListener(topics = "test", containerFactory = "kafkaListenerContainerFactory")
   public void testQueue(ConsumerRecord<?, ?> record) {
     String info = record.value().toString();
-    LOGGER.info("消费者-消息处理成功：" +info);
+    LOGGER.info("消费者-处理消息成功：" +info);
   }
 
 }

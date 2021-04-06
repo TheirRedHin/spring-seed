@@ -51,6 +51,7 @@ public class CodeGenerator {
     gen.setTemplate(getTemplateConfig());
     // 8.执行代码生成
     gen.execute();
+    Integer i = 20;
   }
 
   /**

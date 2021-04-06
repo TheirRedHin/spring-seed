@@ -20,4 +20,6 @@ public interface IMcCardService extends IService<McCard> {
    */
   public List<McCard> getMcCardList();
 
+  public String test();
+
 }
